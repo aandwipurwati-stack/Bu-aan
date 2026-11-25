@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Buku Belajarku Kelas 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--c:#ff8a3d;--bg:#fff3d6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{font-family:"Baloo 2","Comic Sans MS","Trebuchet MS",sans-serif;background:var(--bg);color:#3a2a1a;display:flex;flex-direction:column;overflow:hidden;transition:background .4s}
+#stage{flex:1;display:flex;align-items:center;justify-content:center;perspective:1400px;padding:12px;min-height:0}
+#page{width:100%;max-width:460px;height:100%;max-height:640px;background:#fffdf7;border-radius:10px 26px 26px 10px;border-left:12px solid var(--c);box-shadow:0 10px 0 rgba(0,0,0,.08),0 18px 30px rgba(0,0,0,.18);padding:18px 20px;overflow-y:auto;text-align:center;transform-origin:left center;position:relative}
+#page.out{animation:out .28s ease-in forwards}
+#page.in{animation:in .32s ease-out}
+#page.outb{animation:outb .28s ease-in forwards}
+#page.inb{animation:inb .32s ease-out}
+@keyframes out{to{transform:rotateY(-80deg);opacity:.2}}
+@keyframes in{from{transform:rotateY(60deg);opacity:.2}}
+@keyframes outb{to{transform:rotateY(80deg);opacity:.2}}
+@keyframes inb{from{transform:rotateY(-60deg);opacity:.2}}
+.tag{display:inline-block;background:var(--c);color:#fff;border-radius:99px;padding:2px 14px;font-weight:700;font-size:15px}
+.big{font-size:84px;line-height:1.1;margin:8px 0;display:inline-block}
+.bounce{animation:bounce 1.2s ease-in-out infinite}
+.wiggle{animation:wiggle 1s ease-in-out infinite}
+.float{animation:float 2.6s ease-in-out infinite}
+.spin{animation:spin 6s linear infinite}
+.pulse{animation:pulse 1.4s ease-in-out infinite}
+@keyframes bounce{50%{transform:translateY(-18px)}}
+@keyframes wiggle{25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+@keyframes float{50%{transform:translateY(-10px) rotate(4deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{transform:scale(1.18)}}
+h1{font-size:28px;margin:4px 0 8px;color:var(--c);font-weight:800;line-height:1.1}
+p,li{font-size:19px;line-height:1.35;margin:6px 0}
+ul{list-style:none;padding:0;margin:6px 0;text-align:left}
+li{background:#fff;border:2px dashed var(--c);border-radius:14px;padding:6px 12px;margin:7px 0}
+.box{background:var(--bg);border-radius:16px;padding:8px 12px;margin:8px 0}
+.ingat{background:var(--c);color:#fff;border-radius:16px;padding:8px 12px;font-weight:700;font-size:18px;margin-top:10px}
+.row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;font-size:42px}
+.row span{display:inline-block}
+.menu button{display:block;width:100%;margin:8px 0;padding:12px;border:0;border-radius:18px;font:700 20px inherit;font-family:inherit;color:#fff;box-shadow:0 5px 0 rgba(0,0,0,.18)}
+.menu button:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 14px 12px;max-width:500px;width:100%;margin:0 auto}
+nav button{border:0;border-radius:99px;background:var(--c);color:#fff;font:800 22px inherit;font-family:inherit;min-width:64px;height:52px;box-shadow:0 4px 0 rgba(0,0,0,.2)}
+nav button:disabled{opacity:.35}
+nav button:focus-visible,.menu button:focus-visible{outline:4px solid #3a2a1a;outline-offset:2px}
+#cnt{font-weight:700;font-size:17px;text-align:center;flex:1}
+@media (prefers-reduced-motion:reduce){.bounce,.wiggle,.float,.spin,.pulse{animation:none}#page.out,#page.in,#page.outb,#page.inb{animation:none}}
+</style></head><body>
+<div id="stage"><div id="page" aria-live="polite"></div></div>
+<nav><button id="home" aria-label="Daftar isi">🏠</button><button id="prev" aria-label="Halaman sebelumnya">◀</button><div id="cnt"></div><button id="next" aria-label="Halaman berikutnya">▶</button></nav>
+<script>
+var S={bi:["Bahasa Indonesia","#e8505b","#ffe3e3"],mt:["Matematika","#2f80ed","#e0efff"],sb:["SBDP","#9b51e0","#f1e4ff"],pk:["PKLH","#27ae60","#dff7e6"],pn:["Pancasila","#d63a3a","#ffe9d6"],cv:["","#ff8a3d","#fff3d6"]};
+var P=[
+["cv","📚","float","Buku Belajarku Kelas 1","<p>Rangkuman materi Ulangan Semester 1</p><p><b>SDN 011 Balikpapan Timur</b><br>Tahun Pelajaran 2026/2027</p><div class='row'><span class='bounce'>🐘</span><span class='wiggle'>🎨</span><span class='bounce' style='animation-delay:.3s'>🔢</span><span class='wiggle'>🌟</span></div><div class='ingat'>Geser layar atau tekan ▶ untuk membalik halaman!</div>"],
+["cv","🏠","bounce","Pilih Pelajaran","MENU"],
+["bi","🧍","bounce","Sikap Membaca","<ul><li>🪑 Duduk <b>tegak</b></li><li>📖 Buku tidak terlalu dekat dengan mata</li><li>💡 Tempat membaca <b>terang</b> dan <b>tenang</b></li><li>👀 Jaga <b>mata</b> saat membaca</li></ul><div class='ingat'>Rajin membaca buku membuat kita pintar!</div>"],
+["bi","🔤","wiggle","Huruf Vokal","<p>Huruf vokal ada 5:</p><div class='row'><span class='pulse'>A</span><span class='pulse' style='animation-delay:.2s'>I</span><span class='pulse' style='animation-delay:.4s'>U</span><span class='pulse' style='animation-delay:.6s'>E</span><span class='pulse' style='animation-delay:.8s'>O</span></div><p>Kata <b>biru</b> → vokalnya <b>i</b> dan <b>u</b></p><div class='ingat'>a – i – u – e – o</div>"],
+["bi","🐘","bounce","Suku Kata","<ul><li>Hewan awalan <b>g</b>: 🐘 <b>g</b>ajah, 🦍 <b>g</b>orila</li><li>Awalan <b>ba</b>: <b>ba</b>ju 👕, <b>ba</b>ca 📖, <b>ba</b>tu 🪨</li><li>🌹 <b>ma</b>-war</li><li>🍳 <b>da</b>-pur</li></ul>"],
+["bi","❓","wiggle","Tanda Tanya","<p>Kalimat tanya diakhiri tanda tanya <b>( ? )</b></p><ul><li><b>Di mana</b> rumah Beni?</li><li><b>Siapa</b> nama adikmu?</li></ul><div class='ingat'>Kata tanya: apa, siapa, di mana, kapan</div>"],
+["bi","❗","pulse","Kalimat Perintah","<p>Kalimat perintah diakhiri tanda seru <b>( ! )</b></p><ul><li>🚫 Larangan: <b>Jangan</b> berlari!</li><li>🤝 Ajakan: <b>Ayo</b> belajar!</li></ul>"],
+["bi","🐦","float","Menyimak dan Menulis","<p>🐦 Burung berbunyi <b>cuit cuit</b></p><p>✍️ Kita menulis dengan <b>tangan</b></p><p>Saat dengar cerita, kita bisa menirukan gerakan hewan, misalnya 🐸 katak melompat!</p>"],
+["mt","🔢","bounce","Bilangan 1 – 10","<div class='row' style='font-size:30px'><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div><ul><li>10 = <b>sepuluh</b></li><li>delapan = <b>8</b></li><li>Terkecil → 1, terbesar → 10</li></ul>"],
+["mt","🍎","wiggle","Menghitung Benda","<div class='row'><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><p>Ada <b>5</b> apel.</p><p>🍽️🍽️🍽️ piring &gt; 🥄🥄 sendok → piring lebih <b>banyak</b></p>"],
+["mt","➕","pulse","Penjumlahan","<p>🍊🍊 + 🍊🍊🍊 = 🍊🍊🍊🍊🍊</p><div class='box'><b>2 + 3 = 5</b></div><div class='box'>4 + <b>2</b> = 6</div><div class='box'>9 = 4 + 5</div><div class='ingat'>Menjumlah = menggabung</div>"],
+["mt","➖","wiggle","Pengurangan","<p>🍬🍬🍬🍬🍬 ambil 2 ❌</p><div class='box'><b>8 – 2 = 6</b></div><p>Ada 5 burung 🐦, terbang 2. Sisa <b>3</b> burung.</p><div class='ingat'>Mengurang = mengambil</div>"],
+["mt","🔷","spin","Bangun Datar","<ul><li>⬜ <b>Persegi</b> – sisi sama panjang</li><li>🟦 <b>Persegi panjang</b> – papan tulis, meja belajar</li><li>🔺 <b>Segitiga</b> – 3 sisi</li><li>⚪ <b>Lingkaran</b> – roda sepeda</li></ul>"],
+["sb","🖍️","wiggle","Garis dan Bentuk","<p>➖ Garis <b>lurus</b></p><p>〰️ Garis <b>bergelombang</b></p><p>🚲 Roda sepeda → <b>lingkaran</b></p><p>🧑‍🏫 Papan tulis → <b>persegi panjang</b></p>"],
+["sb","✂️","bounce","Menggunting dan Menempel","<ul><li>✂️ Memotong pakai <b>gunting</b></li><li>🧴 Menempel pakai <b>lem</b>, oleskan tipis lalu tekan</li><li>🏠 Contoh karya: rumah dari potongan kertas (persegi + segitiga)</li></ul>"],
+["sb","🎵","float","Bunyi dan Irama","<ul><li>🌧️🌊 Bunyi <b>alam</b>: hujan, ombak</li><li>📯🥁 Bunyi <b>buatan</b>: klakson, gendang</li><li>🐇 Tempo <b>cepat</b> / 🐢 tempo <b>lambat</b></li><li>👏 tepuk – 👏 tepuk – 🦶 hentak</li></ul>"],
+["sb","💃","bounce","Seni Tari","<ul><li>Yang bergerak: <b>kepala, tangan, kaki</b></li><li>Gerak <b>tinggi</b> 🙆 tangan ke atas</li><li>Gerak <b>rendah</b> 🧎 badan merendah</li><li>Gerakan sesuai <b>irama</b> 🎶</li></ul>"],
+["pk","👀","pulse","Fungsi Anggota Tubuh","<ul><li>👁️ Mata untuk <b>melihat</b></li><li>👂 Telinga untuk <b>mendengar</b></li><li>🦶 Kaki untuk <b>berjalan</b></li></ul>"],
+["pk","🪥","wiggle","Menjaga Kebersihan Badan","<ul><li>🪥 Gigi: <b>sikat gigi</b> dan pasta</li><li>🛁 Badan: mandi pakai <b>sabun</b></li><li>💅 Kuku: potong pakai <b>gunting kuku</b></li><li>💇 Rambut: keramas pakai <b>sampo</b>, lalu disisir</li></ul>"],
+["pk","🧹","bounce","Lingkungan dan Alat Kebersihan","<p>✨ <b>Bersih</b>: rapi, tidak ada sampah</p><p>🗑️ <b>Kotor</b>: sampah berserakan, bau</p><p>Alat: 🧹 sapu, 🧽 lap, 🗑️ tempat sampah, 🪣 ember</p><div class='ingat'>Manfaat bersih: sehat, nyaman, tidak sakit. Buang sampah pada tempatnya!</div>"],
+["pn","🦅","float","Garuda Pancasila","<ul><li>Lambang negara: <b>Garuda Pancasila</b></li><li>Dasar negara: <b>Pancasila</b></li><li>Jumlah sila: <b>5</b></li><li>Bulu sayap: <b>17</b></li></ul>"],
+["pn","⭐","spin","Lima Sila","<ul><li>⭐ Sila 1: <b>Ketuhanan Yang Maha Esa</b></li><li>⛓️ Sila 2: Kemanusiaan</li><li>🌳 Sila 3: Persatuan Indonesia</li><li>🐂 Sila 4: Kerakyatan</li><li>🌾 Sila 5: Keadilan (padi dan kapas)</li></ul>"],
+["pn","🙏","bounce","Contoh Sila dan Lagu","<p>🙏 Sila 1: <b>berdoa</b> sebelum makan</p><p>🤝 Bermain bersama: sila ke-3, Persatuan</p><p>🎶 Lagu upacara hari Senin: <b>Indonesia Raya</b></p><p>Penciptanya: <b>W.R. Supratman</b></p>"],
+["pn","📋","wiggle","Aturan","<ul><li>Pembuat aturan rumah: <b>ayah dan ibu</b></li><li>Pembuat aturan sekolah: <b>guru</b></li><li>🏠 Merapikan tempat tidur</li><li>🏫 Memakai seragam</li><li>🍚 Makan: cuci tangan, berdoa, duduk</li></ul>"],
+["pn","🧒","float","Aku dan Temanku","<p>Perkenalan: <b>nama, umur, alamat</b></p><p>Ciri fisik: <b>rambut, kulit, tinggi badan</b></p><p>Kita semua berbeda, tetapi tetap <b>berteman</b> dan saling menghargai 🤗</p><div class='ingat'>Selamat belajar dan sukses UAS! 🌟</div>"]
+];
+var i=0,pg=document.getElementById('page'),busy=false;
+function render(){var p=P[i],s=S[p[0]];
+document.documentElement.style.setProperty('--c',s[1]);document.documentElement.style.setProperty('--bg',s[2]);
+var h=(s[0]?"<span class='tag'>"+s[0]+"</span><br>":"")+"<span class='big "+p[2]+"'>"+p[1]+"</span><h1>"+p[3]+"</h1>";
+if(p[4]=="MENU"){h+="<div class='menu'>"+[["bi",2],["mt",8],["sb",12],["pk",16],["pn",19]].map(function(m){return "<button style='background:"+S[m[0]][1]+"' data-g='"+(m[1]+1)+"'>"+S[m[0]][0]+"</button>"}).join("")+"</div>"}else h+=p[4];
+pg.innerHTML=h;pg.scrollTop=0;
+document.getElementById('cnt').textContent=(i+1)+" / "+P.length;
+document.getElementById('prev').disabled=i==0;document.getElementById('next').disabled=i==P.length-1;
+pg.querySelectorAll('[data-g]').forEach(function(b){b.onclick=function(){go(+b.dataset.g-1)}})}
+function go(n){if(busy||n<0||n>=P.length||n==i)return;busy=true;var f=n>i;pg.className=f?'out':'outb';
+setTimeout(function(){i=n;render();pg.className=f?'in':'inb';setTimeout(function(){pg.className='';busy=false},330)},280)}
+document.getElementById('next').onclick=function(){go(i+1)};
+document.getElementById('prev').onclick=function(){go(i-1)};
+document.getElementById('home').onclick=function(){go(1)};
+var x0=null;document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)go(i+(d<0?1:-1));x0=null});
+document.addEventListener('keydown',function(e){if(e.key=='ArrowRight')go(i+1);if(e.key=='ArrowLeft')go(i-1)});
+render();
+</script></body></html>
